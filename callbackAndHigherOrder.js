@@ -96,13 +96,14 @@ contains(names, 'Colt', result => {
 const uniq = (arr5, fnInput) => {
  
 for(let i = 0; i < arr5.length -1; i++){
-  for(let j = 1; j < arr5.length; j++){
+  for(let j = i+1 ; j < arr5.length; j++){
     if(arr5[i] == arr5[j]){
-      arr5.splice(i,1)
+      arr5.splice(j,1)
+      console.log(arr5);
     }
   }
 }
- callback5(arr5);
+ return fnInput(arr5);
 }
 
 const callback5 = (uniqArr) => `The new names array with all the duplicate items removed is ${uniqArr}`
@@ -113,9 +114,9 @@ console.log(uniq(names, callback5));
   The callback should print a string that says:
   'The new names array with all the duplicate items removed is [UNIQARRPARAM].'
 */
-
-// CODE HERE
-
+// const uniq = (arr, callback) => {
+//   return callback ([...new Set(arr)])
+// }
 
 
 ////////// PROBLEM 6 //////////
