@@ -5,16 +5,17 @@
   Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 */
 
-// CODE HERE
+const multiply = (firstNum, secondNum, callback) => {
+  return callback(firstNum * secondNum)
+}
 
-
-// UNCOMMENT THE FUNCTION CALL BELOW
+// // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// multiply(4, 3, answer => {
-//   console.log('The answer is ' + answer) //should console.log 12
-// })
+multiply(4, 3, answer => {
+  console.log('The answer is ' + answer) //should console.log 12
+})
 
 
 
@@ -26,50 +27,43 @@
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 // Do not edit the code above.
 
-
-
 ////////// PROBLEM 2 //////////
-
 /*
   Write a function called first that takes in two parameters, an array and a callback function.
   Then invoke the callback function, passing in the first element in the array as it's argument.
 */
-
-// CODE HERE 
+const first = (arr1, callbackFn) => {
+  callbackFn(arr1[0]);
+}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// first(names, firstName => {
-//   console.log('The first name in names is ' + firstName)
-// })
-
-
+first(names, firstName => {
+  console.log('The first name in names is ' + firstName)
+})
 
 ////////// PROBLEM 3 //////////
-
 /*
   Write a function called last that takes in an array and a callback function. 
   Then invoke the callback, passing in the last element in the array as the argument.
 */
 
-// CODE HERE
-
+const last = (arr2, cb) => {
+  cb(arr2[arr2.length -1])
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// last(names, lastName => {
-//   console.log('The last name in names is ' + lastName)
-// })
-
-
+last(names, lastName => {
+  console.log('The last name in names is ' + lastName)
+})
 
 ////////// PROBLEM 4 //////////
-
 /*
   Write a function called contains that takes in three parameters: an array, a name and a callback.  
   Check if the name exists in the array. 
@@ -77,22 +71,19 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
   If the name does not exist, invoke the callback with false as the argument.
 */
 
-// CODE HERE 
-
+const contains = (arr3, name4, callback4) => (arr3.includes(name4) ? callback4(true) : callback4(false))
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// contains(names, 'Colt', result => {
-//   if(result === true){
-//     console.log('Colt is in the array')
-//   } else {
-//     console.log('Colt is not in the array')
-//   }
-// })
-
-
+contains(names, 'Colt', result => {
+  if(result === true){
+    console.log('Colt is in the array')
+  } else {
+    console.log('Colt is not in the array')
+  }
+})
 
 ////////// PROBLEM 5 //////////
 
@@ -102,8 +93,20 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
   Hint: you can use a nested for loop to do this.
 */
 
-// CODE HERE
+const uniq = (arr5, fnInput) => {
+ 
+for(let i = 0; i < arr5.length -1; i++){
+  for(let j = 1; j < arr5.length; j++){
+    if(arr5[i] == arr5[j]){
+      arr5.splice(i,1)
+    }
+  }
+}
+ callback5(arr5);
+}
 
+const callback5 = (uniqArr) => `The new names array with all the duplicate items removed is ${uniqArr}`
+console.log(uniq(names, callback5)); 
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
   The callback function should take in one parameter called uniqArr.

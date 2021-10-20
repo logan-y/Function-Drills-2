@@ -11,7 +11,7 @@ const exclaim = function(str) {
 
 // arrow
 // declaration
-// expression
+ expression
 
 
 
@@ -26,16 +26,16 @@ const exclaimTwo = str => {
   return str.toUpperCase() + '!!!'
 }
 
-// arrow
+arrow
 // declaration
 // expression
 
 /*
   Rewrite exclaimTwo to be a single line.
   Call your new function exclaimThree
-
   Brownie points if you use a template string
 */
+const exclaimThree = str => `${str.toUpperCase()} + !!!`
 
 
 
@@ -51,7 +51,7 @@ function exclaimFour(str) {
 }
 
 // arrow
-// declaration
+declaration
 // expression
 
 
@@ -62,8 +62,7 @@ function exclaimFour(str) {
     Write an arrow function called 'jsNinja' that returns the string: 'I am a JavaScript ninja!'
 */
 
-//CODE HERE
-
+const jsNinja = () => `I am a Javascript ninja!`;
 
 
 ////////// PROBLEM 5 //////////
@@ -77,9 +76,19 @@ function exclaimFour(str) {
     Brownie points if you use a ternary statement (only spend significant time on this if you have wiggle room)
 */
 
-//CODE HERE
-
+const compareNums = (num1, num2) => {
+  if(num1 >= num2){
+    return num1;
+  } else {
+    return num2
+  }
+}
   
+const compareNums2 = (num1, num2) => {
+  return (num1>=num2 ? num1 : num2);
+}
+console.log(compareNums2(6,6));
+
 ////////// PROBLEM 6 //////////
 
 /*
@@ -93,4 +102,5 @@ function exclaimFour(str) {
     that out)
 */
 
-//CODE HERE
+const bestMovie = title => `${title} is the best movie ever!`
+console.log(bestMovie('holes'));
