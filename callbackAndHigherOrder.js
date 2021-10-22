@@ -126,7 +126,13 @@ console.log(uniq(names, callback5));
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
 
-// CODE HERE 
+const each = (arr6, callback) => {
+  let newArr6 = [];
+  for(let i = 0; i < arr6.length; i++){
+    newArr6.push(callback(arr6[i], i))
+  }
+  return newArr6;
+}
 
 
 /*
@@ -136,7 +142,9 @@ console.log(uniq(names, callback5));
   'The item at index [INDEXPARAM] is [ITEMPARAM].'
 */
 
-// CODE HERE
+console.log(each(names, (item, index) => `The item at index ${index} is ${item}`))
+
+
 
 
 ////////// PROBLEM 7 //////////
@@ -145,6 +153,8 @@ console.log(uniq(names, callback5));
   Write a function called getUserById that takes in three parameters: an array of objects (users), an id and a callback, and searches for the user with a matching id.
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
+
+
 
 // Do not edit the code below.
 var users = [
@@ -168,17 +178,20 @@ var users = [
   },
 ]
 // Do not edit the code above.
-
-// CODE HERE 
-
-
+getUserById = (objArr, id, callback) => {
+  objArr.forEach(element => {
+    if(element.id === id){
+      callback(element)
+    }
+  });
+}
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// getUserById(users, '16t', user => {
-//   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
-// })
+getUserById(users, '16t', user => {
+  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
+})
 
 ////////// CHALLENGE //////////
 
@@ -196,7 +209,6 @@ var users = [
   the two parameters together and return the sum.
 */
 
-// CODE HERE
 
 /*
   Now that you have addingFactory, you can create other
@@ -210,8 +222,11 @@ var users = [
   10 as an arguemnt.
 */
 
-// CODE HERE
+const addingFactory = (numba1) => {
+  return innerAdder = (numba2) => numba1 + numba2;
+}
 
+const addTen = addingFactory(10);
 /*
   Now the inner function is stored in the addTen variable! 
 
@@ -221,8 +236,8 @@ var users = [
   Call it a second time, passing in a different number
   to see the different outputs.
 */
-
-// CODE HERE
+console.log(addTen(2));
+console.log(addTen(4));
 
 /*
   Let's make another function from the addingFactory. 
@@ -235,4 +250,7 @@ var users = [
   to add any number to your favorite number!
 */
 
-// CODE HERE
+const addNUMBER = addingFactory(337)
+console.log(addNUMBER(200));
+
+//https://www.figma.com/community/plugin/745330164019088593/Zeplin
