@@ -18,9 +18,8 @@ const mixedNumbers = [6,3,1,7,5,2,6,8,9,4,2,7,9,3,1,8,4,3];
 */
 
 // CODE HERE
-const evenNumbers // = mixedNumbers.filter(/* Provide Your Callback Here */)
-
-
+const evenNumbers = mixedNumbers.filter(e => e % 2 ==0)
+console.log(evenNumbers);
 
 ////////// PROBLEM 2 //////////
 
@@ -39,7 +38,8 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 */
 
 // CODE HERE
-const postTaxPrices // = prices.map(/* Provide Your Callback Here );
+const postTaxPrices = prices.map(num => num * 1.07)
+//console.log(postTaxPrices);
 
 
 
@@ -57,7 +57,8 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 */
 
 // CODE HERE
-const totalPopulation //  = populations.reduce(/* Provide Your Callback Here */)
+const totalPopulation = populations.reduce((acc, curr) => acc + curr);
+//console.log(totalPopulation);
 
 
 
@@ -82,8 +83,8 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 // CODE HERE
-const myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
-
+const myStrongest = monstersInYourPocket.filter(e => e.CP > 200)
+console.log(myStrongest)
 
 
 ////////// PROBLEM 5 //////////
@@ -102,7 +103,20 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 // CODE HERE
 
 
+const higherFunction = (arr, cb) => {
+  let results = arr.map((element, index, array) =>{
+    return cb(element.price, element.tax); //will also return array with elements changed here
+  })
+  return results;
+}
 
+const calculateFinalCost = (price, taxRate) => {
+  let tax = price * taxRate
+  //console.log(price + tax)
+  return price + tax;
+}
+let results = higherFunction(orders, calculateFinalCost);
+console.log(results)
 ////////// PROBLEM 6 //////////
 
 // Do not edit the code below.
@@ -114,9 +128,8 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 {"owner":"Barry","price":30},{"owner":"Barry","price":129},{"owner":"Barry","price":38},
 {"owner":"Bob","price":133},{"owner":"Barry","price":109},{"owner":"Bob","price":115}];
 // Do not edit the code above.
+let bobsTotal = 0;
+let bobsPurchases = purchases.filter(e => e.owner == 'Bob');
+bobsPurchases.forEach(e => bobsTotal += e.price);
+console.log(bobsTotal);
 
-/*
-  Use a high order method(s) to create to get the sum of bobsTotal.
-*/
-
-// CODE HERE

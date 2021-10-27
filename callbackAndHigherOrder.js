@@ -207,10 +207,7 @@ getUserById(users, '16t', user => {
 
   The (inner) function that's being returned should add
   the two parameters together and return the sum.
-*/
-
-
-/*
+  
   Now that you have addingFactory, you can create other
   functions from it. 
 
